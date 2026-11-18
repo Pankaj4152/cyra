@@ -7,8 +7,15 @@ and returns structured classification label, confidence score, and raw probabili
 """
 
 import os
+import sys
 from pathlib import Path
 from typing import Dict, Union
+
+# Ensure project root is in sys.path
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
